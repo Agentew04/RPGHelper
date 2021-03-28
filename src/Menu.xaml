@@ -1,0 +1,17 @@
+﻿<Window x:Class="TesteCSharp.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TesteCSharp"
+        mc:Ignorable="d"
+        Title="Menu" Height="361" Width="258" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Closing="Window_Closing">
+    <Grid HorizontalAlignment="Center" Width="258" Height="345" VerticalAlignment="Bottom" Background="#FF303030">
+        <Label Content="Ficha Remake" HorizontalAlignment="Left" Margin="39,39,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" RenderTransformOrigin="0.5,0.5" Width="180" Foreground="White"/>
+        <Button Content="Ficha" HorizontalAlignment="Left" Margin="39,96,0,0" VerticalAlignment="Top" Width="180" Height="39" FontFamily="Consolas" FontSize="25" Click="Button_Click_1"/>
+        <Button Content="Dados" HorizontalAlignment="Left" Margin="39,140,0,0" VerticalAlignment="Top" Width="180" Height="39" FontFamily="Consolas" FontSize="25" Click="Button_Click"/>
+        <Button Content="Config" HorizontalAlignment="Left" Margin="39,184,0,0" VerticalAlignment="Top" Width="180" Height="39" FontFamily="Consolas" FontSize="25" Click="Button_Click_2"/>
+        <Button Content="???" HorizontalAlignment="Left" Margin="39,228,0,0" VerticalAlignment="Top" Width="180" Height="39" FontFamily="Consolas" FontSize="25" IsEnabled="False"/>
+        <Button Content="???" HorizontalAlignment="Left" Margin="39,272,0,0" VerticalAlignment="Top" Width="180" Height="39" FontFamily="Consolas" FontSize="25" IsEnabled="False"/>
+    </Grid>
+</Window>

@@ -1,0 +1,79 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TesteCSharp.Windows"
+        xmlns:TesteCSharp="clr-namespace:TesteCSharp" x:Class="TesteCSharp.Windows.Ficha"
+        mc:Ignorable="d"
+        Title="Ficha" Height="718.9" Width="1280" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Grid Background="#FF303030">
+        <Label x:Name="currencyLabel" Content="0" HorizontalAlignment="Left" Margin="628,555,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label Content="Ouros" HorizontalAlignment="Left" Margin="601,599,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Button x:Name="AddMoneyButton" Content="+" HorizontalAlignment="Left" Margin="640,643,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Width="36" Click="AddMoneyButton_Click"/>
+        <Button x:Name="remMoneyButton" Content="-" HorizontalAlignment="Left" Margin="604,643,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Width="36" Click="RemMoneyButton_Click"/>
+        <TextBox x:Name="NomeTextBox" HorizontalAlignment="Left" Margin="40,54,0,0" Text="Nome" TextWrapping="Wrap" VerticalAlignment="Top" Width="257" FontSize="25" FontFamily="Consolas" Background="#FFB8B8B8" Height="28"/>
+        <Label Content="Nome do Personagem" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <TextBox x:Name="ClasseTextBox" HorizontalAlignment="Left" Margin="337,54,0,0" Text="Classe" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" FontSize="25" FontFamily="Consolas" Background="#FFB8B8B8" Height="31"/>
+        <Label Content="Classe do Personagem" HorizontalAlignment="Left" Margin="337,10,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <TextBox x:Name="PactoTextBox" HorizontalAlignment="Left" Margin="652,54,0,0" Text="Pacto" TextWrapping="Wrap" VerticalAlignment="Top" Width="257" FontSize="25" FontFamily="Consolas" Background="#FFB8B8B8" Height="31"/>
+        <Label Content="Pacto do Personagem" HorizontalAlignment="Left" Margin="652,10,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label Content="Mochila do Personagem" HorizontalAlignment="Left" Margin="945,10,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <TextBox x:Name="MochilaTextBox" HorizontalAlignment="Left" Margin="945,54,0,0" Text="Vazia" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" FontSize="25" FontFamily="Consolas" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" Height="266" Background="#FFB8B8B8"/>
+        <Label Content="Vida" HorizontalAlignment="Left" Margin="490,337,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="585,414,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Consolas" Background="{x:Null}" Foreground="White"/>
+        <Label Content="Atual" HorizontalAlignment="Left" Margin="585,453,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Consolas" Foreground="White"/>
+        <TextBox x:Name="totalVidaTxt" HorizontalAlignment="Left" Margin="663,418,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontSize="20" FontFamily="Consolas" Background="#FFB8B8B8" Height="25"/>
+        <TextBox x:Name="atualVidaTxt" HorizontalAlignment="Left" Margin="663,459,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontSize="20" FontFamily="Consolas" Background="#FFB8B8B8" Height="25"/>
+        <Button x:Name="setTotalVida" HorizontalAlignment="Left" Margin="765,418,0,0" VerticalAlignment="Top" Height="25" Width="25" Click="SetTotalVida_Click"/>
+        <Button x:Name="setAtualVida" HorizontalAlignment="Left" Margin="765,459,0,0" VerticalAlignment="Top" Height="25" Width="25" Click="SetAtualVida_Click"/>
+        <Label Content="Nível" HorizontalAlignment="Left" Margin="490,180,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label Content="Add Xp" HorizontalAlignment="Left" Margin="623,257,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Consolas" Foreground="White"/>
+        <TextBox x:Name="addxpTxt" HorizontalAlignment="Left" Margin="704,261,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" FontSize="20" FontFamily="Consolas" Background="#FFB8B8B8" Height="25"/>
+        <Button x:Name="addXpButton" HorizontalAlignment="Left" Margin="765,261,0,0" VerticalAlignment="Top" Height="25" Width="25" Click="AddXpButton_Click" Background="#FFDDDDDD"/>
+        <Label x:Name="nivelLabel" Content="0" HorizontalAlignment="Left" Margin="585,180,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <ProgressBar x:Name="levelprogressbar" HorizontalAlignment="Center" Height="33" Margin="0,219,0,0" VerticalAlignment="Top" Width="300" Background="#FFB8B8B8"/>
+        <ProgressBar x:Name="vidaProgressBar" HorizontalAlignment="Center" Height="26" Margin="0,376,0,0" VerticalAlignment="Top" Width="300" Background="Red" Maximum="10" Value="10"/>
+        <Label Content="Força" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label x:Name="LabelForca" Content="0" HorizontalAlignment="Left" Margin="90,191,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="25" Foreground="White"/>
+        <Button x:Name="addForca" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="+" FontFamily="Consolas" FontSize="25" Click="AddForca_Click"/>
+        <Button x:Name="removeForca" HorizontalAlignment="Left" Margin="47,194,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="-" FontFamily="Consolas" FontSize="25" Click="RemoveForca_Click"/>
+        <Label Content="Vitalidade" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label x:Name="LabelVitalidade" Content="0" HorizontalAlignment="Left" Margin="90,271,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="25" Foreground="White"/>
+        <Button x:Name="addVitalidade" HorizontalAlignment="Left" Margin="10,274,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="+" FontFamily="Consolas" FontSize="25" Click="AddVitalidade_Click"/>
+        <Button x:Name="removeVitalidade" HorizontalAlignment="Left" Margin="47,274,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="-" FontFamily="Consolas" FontSize="25" Click="RemoveVitalidade_Click"/>
+        <Label Content="Resistência" HorizontalAlignment="Left" Margin="10,311,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label x:Name="LabelResistencia" Content="0" HorizontalAlignment="Left" Margin="90,354,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="25" Foreground="White"/>
+        <Button x:Name="addResistencia" HorizontalAlignment="Left" Margin="10,357,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="+" FontFamily="Consolas" FontSize="25" Click="AddResistencia_Click"/>
+        <Button x:Name="removeResistencia" HorizontalAlignment="Left" Margin="47,357,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="-" FontFamily="Consolas" FontSize="25" Click="RemoveResistencia_Click"/>
+        <Label Content="Destreza" HorizontalAlignment="Left" Margin="10,392,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label x:Name="LabelDestreza" Content="0" HorizontalAlignment="Left" Margin="90,435,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="25" Foreground="White"/>
+        <Button x:Name="addDestreza" HorizontalAlignment="Left" Margin="10,438,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="+" FontFamily="Consolas" FontSize="25" Click="AddDestreza_Click"/>
+        <Button x:Name="removeDestreza" HorizontalAlignment="Left" Margin="47,438,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="-" FontFamily="Consolas" FontSize="25" Click="RemoveDestreza_Click"/>
+        <Label Content="Percepção" HorizontalAlignment="Left" Margin="10,484,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label x:Name="LabelPercepcao" Content="0" HorizontalAlignment="Left" Margin="90,527,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="25" Foreground="White"/>
+        <Button x:Name="addPercepcao" HorizontalAlignment="Left" Margin="10,530,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="+" FontFamily="Consolas" FontSize="25" Click="AddPercepcao_Click"/>
+        <Button x:Name="removePercepcao" HorizontalAlignment="Left" Margin="47,530,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="-" FontFamily="Consolas" FontSize="25" Click="RemovePercepcao_Click"/>
+        <Label Content="Memória" HorizontalAlignment="Left" Margin="185,150,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label x:Name="LabelMemoria" Content="0" HorizontalAlignment="Left" Margin="264,191,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="25" Foreground="White"/>
+        <Button x:Name="addMemoria" HorizontalAlignment="Left" Margin="183,194,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="+" FontFamily="Consolas" FontSize="25" Click="AddMemoria_Click"/>
+        <Button x:Name="removeMemoria" HorizontalAlignment="Left" Margin="220,194,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="-" FontFamily="Consolas" FontSize="25" Click="RemoveMemoria_Click"/>
+        <Label Content="Lábia" HorizontalAlignment="Left" Margin="182,228,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label x:Name="LabelLabia" Content="0" HorizontalAlignment="Left" Margin="262,271,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="25" Foreground="White"/>
+        <Button x:Name="addLabia" HorizontalAlignment="Left" Margin="182,274,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="+" FontFamily="Consolas" FontSize="25" Click="AddLabia_Click"/>
+        <Button x:Name="removeLabia" HorizontalAlignment="Left" Margin="220,274,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="-" FontFamily="Consolas" FontSize="25" Click="RemoveLabia_Click"/>
+        <Label Content="Fé" HorizontalAlignment="Left" Margin="183,311,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label x:Name="LabelFe" Content="0" HorizontalAlignment="Left" Margin="263,354,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="25" Foreground="White"/>
+        <Button x:Name="addFe" HorizontalAlignment="Left" Margin="183,357,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="+" FontFamily="Consolas" FontSize="25" Click="AddFe_Click"/>
+        <Button x:Name="removeFe" HorizontalAlignment="Left" Margin="221,357,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="-" FontFamily="Consolas" FontSize="25" Click="RemoveFe_Click"/>
+        <Label Content="Trevas" HorizontalAlignment="Left" Margin="182,392,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="White"/>
+        <Label x:Name="LabelTrevas" Content="0" HorizontalAlignment="Left" Margin="262,435,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="25" Foreground="White"/>
+        <Button x:Name="addTrevas" HorizontalAlignment="Left" Margin="182,438,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="+" FontFamily="Consolas" FontSize="25" Click="AddTrevas_Click"/>
+        <Button x:Name="removeTrevas" HorizontalAlignment="Left" Margin="220,438,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="-" FontFamily="Consolas" FontSize="25" Click="RemoveTrevas_Click"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="182,480,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Consolas" Foreground="Red" Background="{x:Null}"/>
+        <Label x:Name="LabelTotal" Content="0" HorizontalAlignment="Left" Margin="262,523,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="25" Foreground="Red"/>
+        <Button x:Name="addTotal" HorizontalAlignment="Left" Margin="182,526,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="+" FontFamily="Consolas" FontSize="25" Click="AddTotal_Click"/>
+        <Button x:Name="removeTotal" HorizontalAlignment="Left" Margin="220,526,0,0" VerticalAlignment="Top" Height="32" Width="32" Content="-" FontFamily="Consolas" FontSize="25" Click="RemoveTotal_Click"/>
+        <Label x:Name="vidaLabel" Content="10/10" HorizontalAlignment="Left" Margin="647,338,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Consolas" Background="{x:Null}" Foreground="White" HorizontalContentAlignment="Center"/>
+    </Grid>
+</Window>
