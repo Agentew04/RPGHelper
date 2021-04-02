@@ -33,12 +33,14 @@ namespace TesteCSharp.Windows
             UpdateHabilidades();
             UpdateVida();
             UpdateTextBoxes();
-            DispatcherTimer timer = new DispatcherTimer
+            SyncMoney();
+            DispatcherTimer timerrefresh = new DispatcherTimer
             {
-                Interval = TimeSpan.FromSeconds(10)
+                Interval = TimeSpan.FromSeconds(1)
             };
-            timer.Tick += Timer_tick;
-            timer.Start();
+            timerrefresh.Tick += RefreshDesign;
+            timerrefresh.Start();
+
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -51,30 +53,45 @@ namespace TesteCSharp.Windows
                 this.Hide();
             }
         }
+
+        #region timer
+        public void RefreshDesign(object sender, EventArgs e)
+        {
+
+            UpdateTextBoxes();
+            UpdateVida();
+            UpdateXp();
+            UpdateHabilidades();
+            SyncMoney();
+        }
+        #endregion
+        #region Updates and Textboxes
+
+        private void MochilaTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TempData.mochila = MochilaTextBox.Text;
+        }
+
+        private void PactoTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TempData.pacto = PactoTextBox.Text;
+        }
+
+        private void ClasseTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TempData.classe = ClasseTextBox.Text;
+        }
+
+        private void NomeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TempData.nome = NomeTextBox.Text;
+        }
         public void UpdateTextBoxes()
         {
             NomeTextBox.Text = TempData.nome;
             ClasseTextBox.Text = TempData.classe;
             PactoTextBox.Text = TempData.pacto;
             MochilaTextBox.Text = TempData.mochila;
-
-        }
-        #region timer
-        private void Timer_tick(object sender, EventArgs e){
-            //update char
-            if(TempData.mochila != MochilaTextBox.Text)
-            {
-                TempData.nome = NomeTextBox.Text;
-                TempData.classe = ClasseTextBox.Text;
-                TempData.pacto = PactoTextBox.Text;
-                TempData.mochila = MochilaTextBox.Text;
-            }
-            //update vida
-            if(TempData.VidaAtual != vidaProgressBar.Value)
-            {
-                TempData.VidaAtual = (int)vidaProgressBar.Value;
-                TempData.VidaTotal = (int)vidaProgressBar.Maximum;
-            }
         }
         #endregion
         #region xp
@@ -156,9 +173,9 @@ namespace TesteCSharp.Windows
             }
             if (suc)
             {
-                if (money >= addmoneyint)
+                if (TempData.money >= addmoneyint)
                 {
-                    money -= addmoneyint;
+                    TempData.money -= addmoneyint;
                     SyncMoney();
                 } else
                 {
@@ -183,13 +200,13 @@ namespace TesteCSharp.Windows
             }
             if (suc)
             {
-                money += addmoneyint;
+                TempData.money += addmoneyint;
                 SyncMoney();
             }
         }
         public void SyncMoney()
         {
-            currencyLabel.Content = money;
+            currencyLabel.Content = TempData.money;
         }
         #endregion
         #region habilidades
@@ -364,6 +381,8 @@ namespace TesteCSharp.Windows
             }
             UpdateVida();
         }
+
+
     }
     #endregion
 

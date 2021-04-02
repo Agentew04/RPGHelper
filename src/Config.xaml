@@ -5,13 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TesteCSharp"
         mc:Ignorable="d"
-        Title="Config" Height="139" Width="256" ResizeMode="CanMinimize" SizeToContent="Manual" Closing="Window_Closing_1">
-    <Grid Background="#FF303030">
-        <Label Content="Save Status:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontFamily="Consolas" FontSize="20" Margin="10,12,0,0"/>
-        <Label x:Name="labelstatus" Content="Processando" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Consolas" FontSize="20" HorizontalContentAlignment="Center" Background="Transparent" Width="164"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="185,22,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="20" Click="Button_Click" Padding="1,1,1,1"/>
-        <Button Content="Load" HorizontalAlignment="Left" Margin="185,54,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="20" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"/>
-        <Rectangle HorizontalAlignment="Left" Height="113" Margin="164,0,0,0" VerticalAlignment="Center" Width="4" Fill="#FF6C6C6C"/>
-
+        Title="Config" Height="139" Width="256" ResizeMode="CanResize" SizeToContent="Manual" Closing="Window_Closing_1">
+    <Window.Resources>
+        <Style x:Key="background" TargetType="Grid">
+            <Setter Property="Background" Value="#FF303030"></Setter>
+        </Style>
+        <Style x:Key="labell" TargetType="Label">
+            <Setter Property="FontFamily" Value="Consolas"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+        <Style x:Key="labelbranco" TargetType="Label" BasedOn="{StaticResource labell}">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style x:Key="labelvermelho" TargetType="Label" BasedOn="{StaticResource labell}">
+            <Setter Property="Foreground" Value="#FF0000"/>
+            <Setter Property="Content" Value="Não Salvo"/>
+        </Style>
+        <Style x:Key="labelverde" TargetType="Label" BasedOn="{StaticResource labell}">
+            <Setter Property="Foreground" Value="#1BD40E"/>
+            <Setter Property="Content" Value="Salvo"/>
+        </Style>
+        <Style x:Key="text" TargetType="Button">
+            <Setter Property="FontFamily" Value="Consolas"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Style="{StaticResource background}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Rectangle Width="3" Fill="#FF6C6C6C" Height="auto" Grid.Column="1"></Rectangle>
+        <Label Content="Save Status:" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Style="{StaticResource labelbranco}"></Label>
+        <Label x:Name="labelstatus" Content="Processando..." Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource labelbranco}"></Label>
+        <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="SaveButton" Content="Save" Margin="0,10" Style="{StaticResource text}" Padding="5" Click="Button_Click"/>
+            <Button x:Name="LoadButton" Content="Load" Margin="0, 10" Style="{StaticResource text}" Padding="5" Click="Button_Click_1"/>
+        </StackPanel>
     </Grid>
 </Window>

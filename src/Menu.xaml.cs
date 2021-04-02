@@ -19,12 +19,11 @@ namespace TesteCSharp
 /// </summary>
 public partial class Menu : Window
     {
-        Window ficha = new Windows.Ficha();
-        public Window Ficha { get => ficha; set => ficha = value; }
-        Window dados = new Dados();
-        public Window Dados { get => dados; set => dados = value; }
-        Window config = new Config();
-        public Window Config { get => config; set => config = value; }
+        public static Window Ficha { get; set; } = new Windows.Ficha();
+
+        public static Window Dados { get; set; } = new Dados();
+
+        public static Window Config { get; set; } = new Config();
 
         public Menu()
         {

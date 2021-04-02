@@ -107,6 +107,7 @@ namespace TesteCSharp.Assistant
             TempData.habilidades["labia"] = (ulong)jsonfile["ficha"]["habilidades"]["labia"];
             TempData.habilidades["fe"] = (ulong)jsonfile["ficha"]["habilidades"]["fe"];
             TempData.habilidades["trevas"] = (ulong)jsonfile["ficha"]["habilidades"]["trevas"];
+
             //will not change for now, not ready yet
             //core mechanics
             //var x = jsonfile["core_rpg"]["levelxp"];
