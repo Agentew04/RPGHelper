@@ -1,0 +1,293 @@
+﻿<Page
+    x:Class="Ficha.FichaPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ficha"
+    xmlns:sys="using:System"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance Type=local:FichaViewModel}"
+    Background ="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:ui ="using:Microsoft.UI.Xaml.Controls"
+    xmlns:adduplex="using:AdDuplex">
+
+    <Page.Resources>
+        <local:ConverterStrInt x:Key="conv-str-int"/>
+        <Style x:Name="mochilastyle" TargetType="RichEditBox">
+            <Setter Property="AcceptsReturn" Value="True"/>
+            <Setter Property="Header" Value="Mochila"/>
+            <Setter Property="PlaceholderText" Value="Vazia"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="CornerRadius" Value="3"/>
+            <Setter Property="Margin" Value="5,0"/>
+        </Style>
+        <Style x:Name="buttonsquare" TargetType="Button">
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style x:Name="middlehab" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,0"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <AcrylicBrush x:Key="FAcrylic"
+                      BackgroundSource="HostBackdrop"
+                      TintColor="Black"
+                      TintOpacity="0.5"
+                      FallbackColor="Green"  />
+    </Page.Resources>
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <!-- nome, classe, pacto -->
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox PlaceholderText="Nome" Header="Nome:" Grid.Column="0" Margin="5,0" Text="{x:Bind ViewModel.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox PlaceholderText="Classe" Header="Classe:" Grid.Column="1" Margin="5,0" Text="{x:Bind ViewModel.Classe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox PlaceholderText="Pacto" Header="Pacto:" Grid.Column="2" Margin="5,0" Text="{x:Bind ViewModel.Pacto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+        <!-- mochila -->
+        <TextBox TextWrapping="Wrap" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" AcceptsReturn="True" Header="Mochila:"
+                 PlaceholderText="Vazia" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,0"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled"
+                 ScrollViewer.BringIntoViewOnFocusChange="True" />
+
+        <!-- habilidades e vida e xp -->
+        <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!-- habilidades-->
+            <!-- #region habilidades-->
+            <StackPanel HorizontalAlignment="Center" Margin="0,15" Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+                <TextBlock Text="Força: " Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CAddForca}"/>
+                    <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
+                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CRemoveForca}"/>
+                </StackPanel>
+                <TextBlock Text="Vitalidade: " Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CAddVitalidade}"/>
+                    <TextBlock Text="{x:Bind ViewModel.Habilidades['vitalidade'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
+                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CRemoveVitalidade}"/>
+                </StackPanel>
+                <TextBlock Text="Resistência: " Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CAddResistencia}"/>
+                    <TextBlock Text="{x:Bind ViewModel.Habilidades['resistencia'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
+                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CRemoveResistencia}"/>
+                </StackPanel>
+                <TextBlock Text="Destreza: " Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CAddDestreza}"/>
+                    <TextBlock Text="{x:Bind ViewModel.Habilidades['destreza'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
+                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CRemoveDestreza}"/>
+                </StackPanel>
+                <TextBlock Text="Percepção: " Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CAddPercepcao}"/>
+                    <TextBlock Text="{x:Bind ViewModel.Habilidades['percepcao'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
+                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CRemovePercepcao}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" Grid.Column="1" Margin="0,15" Grid.RowSpan="2" Grid.Row="0" VerticalAlignment="Center">
+                <TextBlock Text="Memória: " Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CAddMemoria}"/>
+                    <TextBlock Text="{x:Bind ViewModel.Habilidades['memoria'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
+                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CRemoveMemoria}"/>
+                </StackPanel>
+                <TextBlock Text="Lábia: " Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CAddLabia}"/>
+                    <TextBlock Text="{x:Bind ViewModel.Habilidades['labia'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
+                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CRemoveLabia}"/>
+                </StackPanel>
+                <TextBlock Text="Fé: " Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CAddFe}"/>
+                    <TextBlock Text="{x:Bind ViewModel.Habilidades['fe'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
+                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CRemoveFe}"/>
+                </StackPanel>
+                <TextBlock Text="Trevas: " Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CAddTrevas}"/>
+                    <TextBlock Text="{x:Bind ViewModel.Habilidades['trevas'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
+                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CRemoveTrevas}"/>
+                </StackPanel>
+                <TextBlock Text="Total: " Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CAddTotal}"/>
+                    <TextBlock Text='{x:Bind ViewModel.Habilidades["total"], Mode=OneWay}' Style="{StaticResource middlehab}"/>
+                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                            Command="{x:Bind ViewModel.CRemoveTotal}"/>
+                </StackPanel>
+            </StackPanel>
+            <!--#endregion-->
+            <!-- xp -->
+            <!--#region xp -->
+            
+            <Grid Grid.Column="2" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel VerticalAlignment="Bottom" Margin="10">
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Nível: " VerticalAlignment="Center"/>
+                        <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="3" Margin="5,0" Padding="2">
+                            <TextBlock Text="{x:Bind ViewModel.Level,Mode=OneWay}"/>
+                        </Border>
+                    </StackPanel>
+                    <ProgressBar x:Name="LevelProgressBar" Height="5"
+                                 Maximum="{x:Bind ViewModel.Maxxp, Mode=OneWay}"
+                                 Value="{x:Bind ViewModel.Experience, Mode=OneWay}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,5" HorizontalAlignment="Right" VerticalAlignment="top">
+                    <ui:NumberBox x:Name="addxpnumberbox"  Grid.Row="1" PlaceholderText="Ex: 100" Margin="5,0"/>
+                    <Button Grid.Row="1" Content="Adicionar" Margin="5,0,0,0"
+                            Command="{x:Bind ViewModel.CAddXp}"
+                            CommandParameter="{Binding ElementName=addxpnumberbox, Path=Text, Converter={StaticResource conv-str-int}}"/>
+                </StackPanel>
+            </Grid>
+            <!--#endregion-->
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+            <!--#region vida-->
+                <!-- vida -->
+                <StackPanel Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="10">
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Vida: " VerticalAlignment="Center"/>
+                        <StackPanel Margin="5,0" Orientation="Horizontal" BorderBrush="gray" BorderThickness="1" CornerRadius="3" Padding="2">
+                            <TextBlock Text="{x:Bind ViewModel.Life, Mode=OneWay}"/>
+                            <TextBlock Text="/"/>
+                            <TextBlock Text="{x:Bind ViewModel.MaxLife, Mode=OneWay}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <ProgressBar HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                 Maximum="{x:Bind ViewModel.MaxLife, Mode=OneWay}" 
+                                 Value="{x:Bind ViewModel.Life, Mode=OneWay}"
+                                 Height="5"/>
+                </StackPanel>
+                <StackPanel Margin="0,5,5,0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,3">
+                        <ui:NumberBox x:Name="setMaxLifeNumberBox" Header="Vida Total"  PlaceholderText="0" Margin="5,0"/>
+                        <Button Grid.Row="2" Content="Definir" Margin="5,0,0,0" VerticalAlignment="Bottom"
+                                Command="{x:Bind ViewModel.CSetMaxLife}"
+                                CommandParameter="{Binding ElementName=setMaxLifeNumberBox, Path=Text, Converter={StaticResource conv-str-int}}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,3">
+                        <ui:NumberBox x:Name="setCurrentLifeNumberBox" Header="Vida Atual"  PlaceholderText="0" Margin="5,0"/>
+                        <Button Grid.Row="2" Content="Definir" Margin="5,0,0,0" VerticalAlignment="Bottom"
+                                Command="{x:Bind ViewModel.CSetCurrentLife}"
+                                CommandParameter="{Binding ElementName=setCurrentLifeNumberBox, Path=Text, Converter={StaticResource conv-str-int}}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+<!--#endregion-->
+        </Grid>
+
+        <!-- ouro e seus botoes -->
+        <!--#region ouro-->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+        <StackPanel Margin="5" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="{x:Bind ViewModel.Money, Mode=OneWay}"/>
+                <TextBlock Text=" Ouros" Margin="2,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                    <Button x:Name="addmoneybutton" Content="+" Width="30" Height="30" Margin="1">
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel>
+                                    <TextBlock Text="Quanto de ouro quer adicionar?" Margin="0,0,0,12" />
+                                    <ui:NumberBox x:Name="addgoldnumberbox" PlaceholderText="Ex: 10"/>
+                                    <Button Content="Adicionar!" x:Name="addgoldbutton"
+                                            Command="{x:Bind ViewModel.CAddGold}"
+                                            CommandParameter="{Binding ElementName=addgoldnumberbox, Path=Text, Converter={StaticResource conv-str-int}}"
+                                            Click="Addgoldbutton_Click"/>
+
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                    <Button x:Name="removemoneybutton" Content="-" Width="30" Height="30" Margin="1">
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel>
+                                    <TextBlock Text="Quanto de ouro quer adicionar?" Margin="0,0,0,12" />
+                                    <ui:NumberBox x:Name="removegoldnumberbox" PlaceholderText="Ex: 10"/>
+                                    <Button Content="Adicionar!" x:Name="removegoldbutton"
+                                        Command="{x:Bind ViewModel.CRemoveGold}"
+                                        CommandParameter="{Binding ElementName=removegoldnumberbox, Path=Text, Converter={StaticResource conv-str-int}}"
+                                        Click="Removegoldbutton_Click"/>
+
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </StackPanel>
+        </StackPanel>
+            
+            <Grid Grid.Row="1">
+                <StackPanel VerticalAlignment="Center">
+                    <adduplex:AdControl Margin="5,15" AdUnitId="217951" AppKey="5071a304-c99b-4d47-b5a6-ce113908ff90" />
+                    <adduplex:AdControl Margin="5,15" AdUnitId="217947" AppKey="5071a304-c99b-4d47-b5a6-ce113908ff90" />
+                </StackPanel>
+                
+            </Grid>
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</Page>
