@@ -23,7 +23,7 @@
         <TextBlock Text="Rodrigo's Stuff, 2021" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1"/>
         <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3" Padding="10" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel >
-                <Button Content="Archive current settings and create new" Margin="5"
+                <Button Content="Archive current settings and create new" Margin="5" Style="{ThemeResource ButtonRevealStyle}"
                         Command="{x:Bind ViewModel.CCreateNewProfile}"/>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <ToggleSwitch x:Name="autosaveswitch" Header="Auto Save" OffContent="Enable" OnContent="Disable" IsOn="{x:Bind ViewModel.AutoSave, Mode=TwoWay}" Margin="5,0"/>
@@ -40,9 +40,9 @@
         </Border>
         <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3" Padding="10" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel >
-                <Button Content="Save Settings" Margin="5"
+                <Button Content="Save Settings" Margin="5" Style="{ThemeResource ButtonRevealStyle}"
                         Command="{x:Bind ViewModel.CSave}"/>
-                <Button Content="Load Settings" Margin="5"
+                <Button Content="Load Settings" Margin="5" Style="{ThemeResource ButtonRevealStyle}"
                         Command="{x:Bind ViewModel.CLoad}"/>
             </StackPanel>
         </Border>
