@@ -24,7 +24,7 @@
             <Setter Property="CornerRadius" Value="3"/>
             <Setter Property="Margin" Value="5,0"/>
         </Style>
-        <Style x:Name="buttonsquare" TargetType="Button">
+        <Style x:Name="buttonsquare" TargetType="Button" BasedOn="{ThemeResource ButtonRevealStyle}">
             <Setter Property="Width" Value="30"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="Margin" Value="5"/>
@@ -85,7 +85,8 @@
                 <TextBlock Text="Força: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button Content="+" Style="{StaticResource buttonsquare}"
-                            Command="{x:Bind ViewModel.CAddForca}"/>
+                            Command="{x:Bind ViewModel.CAddForca}"
+                            />
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
                     <Button Content="-" Style="{StaticResource buttonsquare}"
                             Command="{x:Bind ViewModel.CRemoveForca}"/>
@@ -189,7 +190,7 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,5" HorizontalAlignment="Right" VerticalAlignment="top">
                     <ui:NumberBox x:Name="addxpnumberbox"  Grid.Row="1" PlaceholderText="Ex: 100" Margin="5,0"/>
-                    <Button Grid.Row="1" Content="Adicionar" Margin="5,0,0,0"
+                    <Button Grid.Row="1" Content="Adicionar" Margin="5,0,0,0" Style="{ThemeResource ButtonRevealStyle}"
                             Command="{x:Bind ViewModel.CAddXp}"
                             CommandParameter="{Binding ElementName=addxpnumberbox, Path=Text, Converter={StaticResource conv-str-int}}"/>
                 </StackPanel>
@@ -219,13 +220,13 @@
                 <StackPanel Margin="0,5,5,0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,3">
                         <ui:NumberBox x:Name="setMaxLifeNumberBox" Header="Vida Total"  PlaceholderText="0" Margin="5,0"/>
-                        <Button Grid.Row="2" Content="Definir" Margin="5,0,0,0" VerticalAlignment="Bottom"
+                        <Button Grid.Row="2" Content="Definir" Margin="5,0,0,0" VerticalAlignment="Bottom" Style="{ThemeResource ButtonRevealStyle}"
                                 Command="{x:Bind ViewModel.CSetMaxLife}"
                                 CommandParameter="{Binding ElementName=setMaxLifeNumberBox, Path=Text, Converter={StaticResource conv-str-int}}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,3">
                         <ui:NumberBox x:Name="setCurrentLifeNumberBox" Header="Vida Atual"  PlaceholderText="0" Margin="5,0"/>
-                        <Button Grid.Row="2" Content="Definir" Margin="5,0,0,0" VerticalAlignment="Bottom"
+                        <Button Grid.Row="2" Content="Definir" Margin="5,0,0,0" VerticalAlignment="Bottom" Style="{ThemeResource ButtonRevealStyle}"
                                 Command="{x:Bind ViewModel.CSetCurrentLife}"
                                 CommandParameter="{Binding ElementName=setCurrentLifeNumberBox, Path=Text, Converter={StaticResource conv-str-int}}"/>
                     </StackPanel>
@@ -247,7 +248,7 @@
                 <TextBlock Text=" Ouros" Margin="2,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                    <Button x:Name="addmoneybutton" Content="+" Width="30" Height="30" Margin="1">
+                    <Button x:Name="addmoneybutton" Content="+" Width="30" Height="30" Margin="1" Style="{ThemeResource ButtonRevealStyle}">
                         <Button.Flyout>
                             <Flyout>
                                 <StackPanel>
@@ -262,7 +263,7 @@
                             </Flyout>
                         </Button.Flyout>
                     </Button>
-                    <Button x:Name="removemoneybutton" Content="-" Width="30" Height="30" Margin="1">
+                    <Button x:Name="removemoneybutton" Content="-" Width="30" Height="30" Margin="1" Style="{ThemeResource ButtonRevealStyle}">
                         <Button.Flyout>
                             <Flyout>
                                 <StackPanel>

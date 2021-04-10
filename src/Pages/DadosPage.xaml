@@ -22,7 +22,8 @@
         <StackPanel Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Dado de 20 Lados" HorizontalAlignment="Center" Margin="0,0,0,20"/>
             <Button Content="Gerar" HorizontalAlignment="Center" Margin="10"
-                    Command="{x:Bind ViewModel.CSortd20}"/>
+                    Command="{x:Bind ViewModel.CSortd20}"
+                    Style="{ThemeResource ButtonRevealStyle}"/>
             <TextBlock x:Name="hist1" Text="{x:Bind ViewModel.Historicod20[0], Mode=OneWay}" HorizontalAlignment="Center" Margin="0,5"/>
             <TextBlock x:Name="hist2" Text="{x:Bind ViewModel.Historicod20[1], Mode=OneWay}" HorizontalAlignment="Center" Margin="0,5"/>
             <TextBlock x:Name="hist3" Text="{x:Bind ViewModel.Historicod20[2], Mode=OneWay}" HorizontalAlignment="Center" Margin="0,5"/>
@@ -38,7 +39,7 @@
                 <ComboBoxItem Content="D2"/>
             </ComboBox>
             
-            <Button Content="Gerar" HorizontalAlignment="Center" Margin="10"
+            <Button Content="Gerar" HorizontalAlignment="Center" Margin="10" Style="{ThemeResource ButtonRevealStyle}"
                     Command="{x:Bind ViewModel.CSortCustom}"/>
             <TextBlock x:Name="mhist1" Text="{x:Bind ViewModel.Historico[0], Mode=OneWay}" HorizontalAlignment="Center" Margin="0,5"/>
             <TextBlock x:Name="mhist2" Text="{x:Bind ViewModel.Historico[1], Mode=OneWay}" HorizontalAlignment="Center" Margin="0,5"/>
