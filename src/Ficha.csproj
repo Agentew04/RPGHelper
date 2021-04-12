@@ -147,7 +147,6 @@
     <Compile Include="View Model\DadosViewModel.cs" />
     <Compile Include="View Model\EditLevelsViewModel.cs" />
     <Compile Include="View Model\FichaViewModel.cs" />
-    <Compile Include="View Model\INotifyProperyChanged.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

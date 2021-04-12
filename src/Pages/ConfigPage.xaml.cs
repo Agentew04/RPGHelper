@@ -14,8 +14,7 @@ namespace Ficha
         public ConfigPage()
         {
             this.InitializeComponent();
-            SavingUWP.CreateFile(); 
-            //savefoldertext.Text = SavingUWP.savefile.Path;
+            savefoldertext.Text = SavingUWP.savefile.Path;
 
         }
         public ConfigViewModel ViewModel = new ConfigViewModel();

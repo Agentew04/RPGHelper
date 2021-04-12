@@ -15,18 +15,8 @@ namespace Ficha
         public MainPage()
         {
             this.InitializeComponent();
-            //carregar json e extrair apenas o autoload, e se for sim, extrai de novo e da load!
 
-            /*try
-            {
-                SavingUWP.CreateFile();
-            }
-            catch (Exception) { }
-            bool autoload = SaveReadyClass.GetAutoLoad();
-            if (autoload)
-            {
-                ConfigViewModel.Load();
-            }*/
+            SavingUWP.AppInitializedAsync();
 
             //abre a ficha
             ContentFrame.Navigate(typeof(FichaPage));

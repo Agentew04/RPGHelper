@@ -24,11 +24,6 @@
             <Setter Property="CornerRadius" Value="3"/>
             <Setter Property="Margin" Value="5,0"/>
         </Style>
-        <Style x:Name="buttonsquare" TargetType="Button" BasedOn="{ThemeResource ButtonRevealStyle}">
-            <Setter Property="Width" Value="30"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Margin" Value="5"/>
-        </Style>
         <Style x:Name="middlehab" TargetType="TextBlock">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="10,0"/>
@@ -65,7 +60,7 @@
         <TextBox TextWrapping="Wrap" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" AcceptsReturn="True" Header="Mochila:"
                  PlaceholderText="Vazia" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,0"
                  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled"
-                 ScrollViewer.BringIntoViewOnFocusChange="True" />
+                 ScrollViewer.BringIntoViewOnFocusChange="True" Text="{x:Bind ViewModel.Mochila, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <!-- habilidades e vida e xp -->
         <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
@@ -84,43 +79,43 @@
             <StackPanel HorizontalAlignment="Center" Margin="0,15" Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
                 <TextBlock Text="Força: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                    <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddForca}"
                             />
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                    <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveForca}"/>
                 </StackPanel>
                 <TextBlock Text="Vitalidade: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                    <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddVitalidade}"/>
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['vitalidade'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                    <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveVitalidade}"/>
                 </StackPanel>
                 <TextBlock Text="Resistência: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                    <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddResistencia}"/>
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['resistencia'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                    <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveResistencia}"/>
                 </StackPanel>
                 <TextBlock Text="Destreza: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                    <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddDestreza}"/>
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['destreza'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                    <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveDestreza}"/>
                 </StackPanel>
                 <TextBlock Text="Percepção: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                    <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddPercepcao}"/>
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['percepcao'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                    <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemovePercepcao}"/>
                 </StackPanel>
             </StackPanel>
@@ -128,42 +123,42 @@
             <StackPanel HorizontalAlignment="Center" Grid.Column="1" Margin="0,15" Grid.RowSpan="2" Grid.Row="0" VerticalAlignment="Center">
                 <TextBlock Text="Memória: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                    <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddMemoria}"/>
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['memoria'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                    <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveMemoria}"/>
                 </StackPanel>
                 <TextBlock Text="Lábia: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                    <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddLabia}"/>
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['labia'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                    <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveLabia}"/>
                 </StackPanel>
                 <TextBlock Text="Fé: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                    <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddFe}"/>
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['fe'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                    <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveFe}"/>
                 </StackPanel>
                 <TextBlock Text="Trevas: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                    <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddTrevas}"/>
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['trevas'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                    <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveTrevas}"/>
                 </StackPanel>
                 <TextBlock Text="Total: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+" Style="{StaticResource buttonsquare}"
+                    <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddTotal}"/>
                     <TextBlock Text='{x:Bind ViewModel.Habilidades["total"], Mode=OneWay}' Style="{StaticResource middlehab}"/>
-                    <Button Content="-" Style="{StaticResource buttonsquare}"
+                    <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveTotal}"/>
                 </StackPanel>
             </StackPanel>

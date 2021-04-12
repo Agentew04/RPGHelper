@@ -17,17 +17,5 @@
         </Grid.ColumnDefinitions>
         <Button Grid.Column="1" Content="Save" FontSize="20" Style="{ThemeResource ButtonRevealStyle}"
                 HorizontalAlignment="Center" Padding="15,10"/>
-
-        <tk:DataGrid x:Name="lvdatagrid" Background="Transparent" BorderBrush="Transparent"
-                     AutoGenerateColumns="False">
-            <tk:DataGrid.Columns>
-                <tk:DataGridTextColumn Header="Nível" Tag="level"  Width="*"
-                                       />
-                <tk:DataGridTextColumn Header="Experiência" Tag="xp"  Width="*"
-                                       />
-                <tk:DataGridTextColumn Header="Recompensa" Tag="reward" Width="2*"
-                                       />
-            </tk:DataGrid.Columns>
-        </tk:DataGrid>
     </Grid>
 </Page>

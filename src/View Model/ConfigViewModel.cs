@@ -70,12 +70,12 @@ namespace Ficha
                 AutoSaveInterval = WindowData.ConfigData.AutoSaveInterval
             };
             string json = SavingUWP.ObjectToString(save);
-            SavingUWP.SaveToDisk(json);
+            SavingUWP.SaveToDisk(SavingUWP.savefile,json);
         }
 
         public async static void Load()
         {
-            SaveReadyClass x = SavingUWP.FileToObject<SaveReadyClass>();
+            SaveReadyClass x = await SavingUWP.FileToObjectAsync<SaveReadyClass>(SavingUWP.savefile);
             WindowData.FichaData.Nome = x.Nome;
             WindowData.FichaData.Classe = x.Classe;
             WindowData.FichaData.Pacto = x.Pacto;
@@ -91,11 +91,10 @@ namespace Ficha
             WindowData.ConfigData.AutoSave = x.AutoSave;
             WindowData.ConfigData.AutoSaveInterval = x.AutoSaveInterval;
         }
-        public static void CreateNewProfile()
+        public async static void CreateNewProfile()
         {
             Save();
-            //var x = File.ReadAllText(savefolder + @"\config.json");
-            var x = SavingUWP.ObjectToString(SavingUWP.FileToJObject());
+            var x = SavingUWP.ObjectToString(await SavingUWP.FileToJObjectAsync(SavingUWP.savefile));
             SavingUWP.WriteOldSave(x);
             WindowData.FichaData.Nome = "";
             WindowData.FichaData.Classe = "";

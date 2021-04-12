@@ -11,93 +11,92 @@ namespace Ficha
         private readonly static StorageFolder appfolder = ApplicationData.Current.LocalFolder;
         public static StorageFile savefile;
 
-        /// <summary>
-        /// Create the file if it didn't existed
-        /// </summary>
-        public static void CreateFile()
+        #region apploaded
+
+        public static async void AppInitializedAsync()
         {
-            savefile = appfolder.CreateFileAsync("config.json", CreationCollisionOption.OpenIfExists).AsTask().Result;
+            if (savefile is null)
+            {
+                try
+                {
+                    savefile = await appfolder.GetFileAsync("config.json");
+                }
+                catch (Exception)
+                {
+                    savefile = await appfolder.CreateFileAsync("config.json");
+                }
+            }
+            ConfigViewModel.Load();
         }
 
-        public async static Task<bool> CheckIfSaveExists()
-        {
-            StorageFile save;
-            try
-            {
-                save = await appfolder.GetFileAsync("config.json");
-            }
-            catch (Exception) { return false; }
-            return save != null;
-        }
+        #endregion
+
+        #region othertasks
+
         public static string ObjectToString(object obj)
         {
             string json = JsonConvert.SerializeObject(obj, Formatting.Indented);
             return json;
         }
 
-        #region SavingToDisk
-        public async static void SaveToDisk(string jsonInString)
+        public async static Task<JObject> FileToJObjectAsync(StorageFile file)
         {
-            if(!CheckIfSaveExists().Result)
-            { CreateFile(); }
-            await FileIO.WriteTextAsync(savefile, jsonInString);
-
-        }
-        public async static void SaveToDisk(JObject jsonInJObject)
-        {
-            if (!CheckIfSaveExists().Result)
-            { CreateFile(); }
-            var json = jsonInJObject.ToString();
-            await FileIO.WriteTextAsync(savefile, json);
-        }
-        public static void SaveToDisk(object jsonInObj)
-        {
-            if (!CheckIfSaveExists().Result)
-            { CreateFile(); }
-            var json = ObjectToString(jsonInObj);
-            var x = FileIO.WriteTextAsync(savefile, json);
-            while (!(x.Status == Windows.Foundation.AsyncStatus.Completed))
-            {
-                continue;
-            }
-            return;
-        }
-        #endregion
-
-        public static JObject FileToJObject()
-        {
-            if (!CheckIfSaveExists().Result)
-            { CreateFile(); }
-            string fileTxt = FileIO.ReadTextAsync(savefile).GetResults();
-            JObject jobj = JObject.Parse(fileTxt);
-            return jobj;
+            string fileTxt = await FileIO.ReadTextAsync(file);
+            return JObject.Parse(fileTxt);
         }
 
-        public static T FileToObject<T>() where T : class
+        public async static Task<T> FileToObjectAsync<T>(StorageFile file) where T : class
         {
-            if (!CheckIfSaveExists().Result)
-            { CreateFile(); }
-            string text = FileIO.ReadTextAsync(savefile).GetResults();
+            string text = await FileIO.ReadTextAsync(file);
             return JsonConvert.DeserializeObject<T>(text);
         }
+        #endregion
+
+        #region SavingToDisk
+
+        public async static void SaveToDisk(StorageFile file, string jsonInString)
+        {
+            await FileIO.WriteTextAsync(file, jsonInString);
+        }
+
+        public async static void SaveToDisk(StorageFile file, JObject jsonInJObject)
+        {
+            await FileIO.WriteTextAsync(file, jsonInJObject.ToString());
+        }
+
+        public async static void SaveToDisk(StorageFile file, object jsonInObj)
+        {           
+            await FileIO.WriteTextAsync(file, ObjectToString(jsonInObj));
+        }
+
+        #endregion
+
         #region WriteOldSave
+
         public async static void WriteOldSave(string jsoninstring)
         {
-            StorageFile oldsavefile =await appfolder.CreateFileAsync("config-" + DateTime.Now + ".old");
+            string timestamp = DateTime.Now.ToString();
+            timestamp = timestamp.Replace('/', '-').Replace(':', '-').Replace(' ', '_');
+            StorageFile oldsavefile = await appfolder.CreateFileAsync("config-" + timestamp + ".old");
             await FileIO.WriteTextAsync(oldsavefile, jsoninstring);
         }
+
         public async static void WriteOldSave(object jsoninobj)
         {
-            StorageFile oldsavefile = await appfolder.CreateFileAsync("config-" + DateTime.Now + ".old");
-            var x = ObjectToString(jsoninobj);
-            await FileIO.WriteTextAsync(oldsavefile, x);
+            string timestamp = DateTime.Now.ToString();
+            timestamp = timestamp.Replace('/', '-').Replace(':', '-').Replace(' ', '_');
+            StorageFile oldsavefile = await appfolder.CreateFileAsync("config-" + timestamp + ".old");
+            await FileIO.WriteTextAsync(oldsavefile, ObjectToString(jsoninobj));
         }
+
         public async static void WriteOldSave(JObject jsoninJobject)
         {
-            StorageFile oldsavefile = await appfolder.CreateFileAsync("config-" + DateTime.Now + ".old");
-            var x = jsoninJobject.ToString();
-            await FileIO.WriteTextAsync(oldsavefile, x);
+            string timestamp = DateTime.Now.ToString();
+            timestamp = timestamp.Replace('/', '-').Replace(':', '-').Replace(' ', '_');
+            StorageFile oldsavefile = await appfolder.CreateFileAsync("config-" + timestamp + ".old");
+            await FileIO.WriteTextAsync(oldsavefile, jsoninJobject.ToString());
         }
-        #endregion
+
+        #endregion  
     }
 }
