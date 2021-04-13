@@ -101,8 +101,6 @@ namespace Ficha
                 if (WindowData.FichaData.Level != value)
                 {
                     WindowData.FichaData.Level = value;
-                    Maxxp = Levelxp[Level];
-                    PropertyChanged(this, new PropertyChangedEventArgs(nameof(Maxxp)));
                     PropertyChanged(this, new PropertyChangedEventArgs(nameof(WindowData.FichaData.Level)));
                 }
             }
@@ -115,15 +113,19 @@ namespace Ficha
                 if(WindowData.FichaData.Levelxp!= value)
                 {
                     WindowData.FichaData.Levelxp = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs(nameof(WindowData.FichaData.Levelxp)));
                 }
             }
         }
-        public int Maxxp
-        {
-            get { return Levelxp[Level]; }
+        public int Maxxp 
+        {   get 
+            { 
+                return Levelxp[Level]; 
+            }
             set
             {
                 IncreaseLevel(value);
+                PropertyChanged(this, new PropertyChangedEventArgs(nameof(Maxxp)));
             }
         }
 
@@ -393,19 +395,26 @@ namespace Ficha
         #region xp
         public void AddXp(int xpadicionado)
         {
-            int xpfaltando = Maxxp - Experience;
-            int xpsobrando;
-            bool vaiupar = xpadicionado >= xpfaltando;
+            /*bool vaiupar = xpadicionado >= xpfaltando;
             if (vaiupar)
             {
                 xpsobrando = xpadicionado - xpadicionado;
                 Level += 1;
+                Maxxp = Levelxp[Level];
                 Experience = xpsobrando;
                 //update max
                 return;
             }
             Experience += xpadicionado;
-            return;
+            return;*/
+            Experience += xpadicionado;
+            while (Experience >= Maxxp)
+            {
+                Experience -= Maxxp;
+                Level++;
+                Maxxp = Levelxp[Level];
+            }
+
 
         }
         public void IncreaseLevel(int newmaxxpvalue)

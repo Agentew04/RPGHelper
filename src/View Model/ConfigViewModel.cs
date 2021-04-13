@@ -42,11 +42,36 @@ namespace Ficha
         }
         #endregion
         #region icommands
+        
         public ICommand CSave { get { return new RelayCommand(Save); } }
         public ICommand CLoad { get { return new RelayCommand(Load); } }
         public ICommand CCreateNewProfile { get { return new RelayCommand(CreateNewProfile); } }
+        public ICommand CSetAutoSaveInterval { get { return new RelayCommand(RouteToAutoSave); } }
+        public ICommand CChangeAutoSave { get { return new RelayCommand(ChangeAutoSave); } }
+
         #endregion
         #region saving methods
+
+        public void RouteToAutoSave()
+        {
+            //Ficha.AutoSave.SetInverval((Ficha.AutoSaveInterval)this.AutoSaveInterval);
+        }
+
+        public void ChangeAutoSave()
+        {
+            //if (AutoSave)
+            //{
+            //    if (!Ficha.AutoSave.Timer.IsEnabled)
+            //    {
+            //        Ficha.AutoSave.StartTimer();
+            //    }
+            //}
+            //else
+            //{
+            //    Ficha.AutoSave.Timer.Stop();
+            //}
+        }
+
         public static void Save()
         {
             //create object with all data
@@ -81,6 +106,8 @@ namespace Ficha
             WindowData.FichaData.Pacto = x.Pacto;
             WindowData.FichaData.Mochila = x.Mochila;
             WindowData.FichaData.Money = x.Money;
+            WindowData.FichaData.MaxLife = x.MaxLife;
+            WindowData.FichaData.Life = x.Life;
             WindowData.FichaData.Experience = x.Experience;
             WindowData.FichaData.Level = x.Level;
             WindowData.FichaData.Habilidades = x.Habilidades;

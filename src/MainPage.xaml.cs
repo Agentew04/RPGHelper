@@ -16,6 +16,7 @@ namespace Ficha
         {
             this.InitializeComponent();
 
+            //create file and load
             SavingUWP.AppInitializedAsync();
 
             //abre a ficha

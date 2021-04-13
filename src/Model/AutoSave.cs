@@ -3,11 +3,12 @@ using Windows.UI.Xaml;
 
 namespace Ficha
 {
+    /*
     public static class AutoSave
     {
         public static DispatcherTimer Timer { get; set; } = new DispatcherTimer();
 
-        //
+        
         public static void SetInverval(AutoSaveInterval interval)
         {
             switch (interval)
@@ -28,7 +29,13 @@ namespace Ficha
         }
         public static void StartTimer()
         {
+            Timer.Tick += Timer_Tick;
             Timer.Start();
+        }
+
+        private static void Timer_Tick(object sender, object e)
+        {
+            ConfigViewModel.Save();
         }
     }
     public enum AutoSaveInterval
@@ -37,5 +44,5 @@ namespace Ficha
         thirty_seconds,
         one_minute,
         five_minutes
-    }
+    }*/
 }

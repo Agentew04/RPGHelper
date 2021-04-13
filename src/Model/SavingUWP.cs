@@ -27,6 +27,13 @@ namespace Ficha
                 }
             }
             ConfigViewModel.Load();
+            /*SaveReadyClass saveReadyClass = await FileToObjectAsync<SaveReadyClass>(savefile);
+            Ficha.AutoSave.SetInverval((AutoSaveInterval)saveReadyClass.AutoSaveInterval);
+            if (saveReadyClass.AutoSave)
+            {
+                AutoSave.StartTimer();
+            }*/
+
         }
 
         #endregion

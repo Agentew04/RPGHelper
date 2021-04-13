@@ -18,5 +18,15 @@ namespace Ficha
 
         }
         public ConfigViewModel ViewModel = new ConfigViewModel();
+
+        private void autosaveswitch_IsEnabledChanged(object sender, Windows.UI.Xaml.DependencyPropertyChangedEventArgs e)
+        {
+            ViewModel.CChangeAutoSave.Execute(e);
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ViewModel.CSetAutoSaveInterval.Execute(e);
+        }
     }
 }

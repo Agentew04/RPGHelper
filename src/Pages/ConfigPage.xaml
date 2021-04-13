@@ -26,8 +26,8 @@
                 <Button Content="Archive current settings and create new" Margin="5" Style="{ThemeResource ButtonRevealStyle}"
                         Command="{x:Bind ViewModel.CCreateNewProfile}"/>
                 <StackPanel Orientation="Horizontal" Margin="5">
-                    <ToggleSwitch x:Name="autosaveswitch" Header="Auto Save" OffContent="Enable" OnContent="Disable" IsOn="{x:Bind ViewModel.AutoSave, Mode=TwoWay}" Margin="5,0"/>
-                    <ComboBox Margin="5,0" IsEnabled="{Binding ElementName=autosaveswitch, Path=IsOn, Mode=OneWay}" VerticalAlignment="Bottom" SelectedIndex="{x:Bind ViewModel.AutoSaveInterval,Mode=TwoWay}">
+                    <ToggleSwitch IsEnabled="False" x:Name="autosaveswitch" Header="Auto Save" OffContent="Enable" OnContent="Disable" IsOn="{x:Bind ViewModel.AutoSave, Mode=TwoWay}" Margin="5,0" IsEnabledChanged="autosaveswitch_IsEnabledChanged"/>
+                    <ComboBox Margin="5,0" IsEnabled="{Binding ElementName=autosaveswitch, Path=IsOn, Mode=OneWay}" VerticalAlignment="Bottom" SelectedIndex="{x:Bind ViewModel.AutoSaveInterval,Mode=TwoWay}" SelectionChanged="ComboBox_SelectionChanged">
                         <ComboBox.Items>
                             <ComboBoxItem Content="10 seconds"/>
                             <ComboBoxItem Content="30 seconds"/>
