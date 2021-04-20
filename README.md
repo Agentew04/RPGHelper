@@ -1,37 +1,35 @@
-## Welcome to GitHub Pages
+# Ficha para Role Playing Games
 
-You can use the [editor on GitHub](https://github.com/Agentew04/FichaRPG/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+## Description
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This app was designed to assist both Players and Masters in the creation and the playing of Role Playing Games(RPGs)
 
-### Markdown
+## Features
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The current version of the application includes a integrated dice-roller and  a form to store :
 
-```markdown
-Syntax highlighted code block
+* Name
+* Class
+* Breed
+* Backpack/Inventory
+* Experience and level
+* Life
+* Gold/Custom currency
 
-# Header 1
-## Header 2
-### Header 3
+In addition, it also has a custom menu for Master to customize all the naming on the app, level progression(custom, arithmetic and geometric progression), level-up rewards(a new line on the backpack or a amount of gold)
 
-- Bulleted
-- List
+## Saving
 
-1. Numbered
-2. List
+The app saves all the data from the user in a `config.json`. The location of the file depends on the computer and is shown on the configuration tab. The Master can export all the RPG data needed on a `rpg.json`. Any user is encouraged to change anything he wants, but, be aware that it might break things if done incorrectly!
 
-**Bold** and _Italic_ and `Code` text
+## Downloads
 
-[Link](url) and ![Image](src)
-```
+Downloads for the app package are located [here](https://github.com/Agentew04/FichaRPG/releases). 
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+1. Download the `.msix` package
+2. Install
+3. Have fun!
 
-### Jekyll Themes
+## Future roadmap
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Agentew04/FichaRPG/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+As soon as WinUI 3 apps becomes available as unpackaged, the app will be ported to facilitate the file saving on a stable folder.
