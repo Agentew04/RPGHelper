@@ -100,23 +100,23 @@ namespace Ficha
 
         public async static void Load()
         {
-            SaveReadyClass x = await SavingUWP.FileToObjectAsync<SaveReadyClass>(SavingUWP.savefile);
-            WindowData.FichaData.Nome = x.Nome;
-            WindowData.FichaData.Classe = x.Classe;
-            WindowData.FichaData.Pacto = x.Pacto;
-            WindowData.FichaData.Mochila = x.Mochila;
-            WindowData.FichaData.Money = x.Money;
-            WindowData.FichaData.MaxLife = x.MaxLife;
-            WindowData.FichaData.Life = x.Life;
-            WindowData.FichaData.Experience = x.Experience;
-            WindowData.FichaData.Level = x.Level;
-            WindowData.FichaData.Habilidades = x.Habilidades;
-            WindowData.FichaData.Levelxp = x.Levelxp;
-            WindowData.FichaData.IsLevelProgressionStopped = x.IsLevelProgressionStopped;
-            WindowData.DadosData.Historico = x.Historico;
-            WindowData.DadosData.Historicod20 = x.Historicod20;
-            WindowData.ConfigData.AutoSave = x.AutoSave;
-            WindowData.ConfigData.AutoSaveInterval = x.AutoSaveInterval;
+            //SaveReadyClass x = await SavingUWP.FileToObjectAsync<SaveReadyClass>(SavingUWP.savefile);
+            //WindowData.FichaData.Nome = x.Nome;
+            //WindowData.FichaData.Classe = x.Classe;
+            //WindowData.FichaData.Pacto = x.Pacto;
+            //WindowData.FichaData.Mochila = x.Mochila;
+            //WindowData.FichaData.Money = x.Money;
+            //WindowData.FichaData.MaxLife = x.MaxLife;
+            //WindowData.FichaData.Life = x.Life;
+            //WindowData.FichaData.Experience = x.Experience;
+            //WindowData.FichaData.Level = x.Level;
+            //WindowData.FichaData.Habilidades = x.Habilidades;
+            //WindowData.FichaData.Levelxp = x.Levelxp;
+            //WindowData.FichaData.IsLevelProgressionStopped = x.IsLevelProgressionStopped;
+            //WindowData.DadosData.Historico = x.Historico;
+            //WindowData.DadosData.Historicod20 = x.Historicod20;
+            //WindowData.ConfigData.AutoSave = x.AutoSave;
+            //WindowData.ConfigData.AutoSaveInterval = x.AutoSaveInterval;
         }
         public async static void CreateNewProfile()
         {

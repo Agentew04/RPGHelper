@@ -9,7 +9,7 @@
   <Identity
     Name="7d638481-81ff-4c0b-a780-07c79100cf16"
     Publisher="CN=Rodrigo"
-    Version="1.2.1.0" />
+    Version="1.2.4.0" />
 
   <mp:PhoneIdentity PhoneProductId="7d638481-81ff-4c0b-a780-07c79100cf16" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
