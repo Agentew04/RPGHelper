@@ -164,21 +164,24 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\ficha-icone2-wide.scale-100.png" />
-    <Content Include="Assets\ficha-icone2-wide.scale-200.png" />
-    <Content Include="Assets\ficha-icone2-wide.scale-400.png" />
-    <Content Include="Assets\ficha-icone2.altform-lightunplated_targetsize-16.png" />
-    <Content Include="Assets\ficha-icone2.altform-lightunplated_targetsize-256.png" />
-    <Content Include="Assets\ficha-icone2.altform-lightunplated_targetsize-48.png" />
-    <Content Include="Assets\ficha-icone2.altform-unplated_targetsize-16.png" />
-    <Content Include="Assets\ficha-icone2.altform-unplated_targetsize-256.png" />
-    <Content Include="Assets\ficha-icone2.altform-unplated_targetsize-48.png" />
-    <Content Include="Assets\ficha-icone2.scale-100.png" />
-    <Content Include="Assets\ficha-icone2.scale-200.png" />
-    <Content Include="Assets\ficha-icone2.scale-400.png" />
-    <Content Include="Assets\ficha-icone2.targetsize-16.png" />
-    <Content Include="Assets\ficha-icone2.targetsize-256.png" />
-    <Content Include="Assets\ficha-icone2.targetsize-48.png" />
+    <Content Include="Assets\ficha-icone2-blocomedio.scale-100.png" />
+    <Content Include="Assets\ficha-icone2-blocomedio.scale-200.png" />
+    <Content Include="Assets\ficha-icone2-blocomedio.scale-400.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.scale-100.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.scale-200.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.scale-400.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.targetsize-16.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.targetsize-256.png" />
+    <Content Include="Assets\ficha-icone2-iconeaplicativo.targetsize-48.png" />
+    <Content Include="Assets\ficha-icone2-logotipopacote.scale-100.png" />
+    <Content Include="Assets\ficha-icone2-logotipopacote.scale-200.png" />
+    <Content Include="Assets\ficha-icone2-logotipopacote.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
