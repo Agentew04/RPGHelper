@@ -16,9 +16,10 @@
             <NavigationViewItemHeader Content="Jogar"/>
             <NavigationViewItem Content="Ficha" Icon="OtherUser" Tag="ficha"/>
             <NavigationViewItem Content="Dados" Icon="Refresh" Tag="dados"></NavigationViewItem>
-            <!--<NavigationViewItemSeparator/>
+            <NavigationViewItemSeparator/>
             <NavigationViewItemHeader Content="Mestrar"/>
             <NavigationViewItem Content="Editar Níveis" Icon="Edit" Tag="editlevels"/>
+            <!--
             <NavigationViewItem Content="Nomes" Icon="Font" Tag="naming"/>-->
         </NavigationView.MenuItems>
         <Frame x:Name="ContentFrame" Background="{ThemeResource SystemControlAcrylicWindowBrush}">

@@ -34,6 +34,12 @@
                       TintColor="Black"
                       TintOpacity="0.5"
                       FallbackColor="Green"  />
+        <SolidColorBrush x:Key="Color1" Color="#0078D7"/>
+        <SolidColorBrush x:Key="Color2" Color="#EC1313"/>
+        <SolidColorBrush x:Key="Color3" Color="#009900"/>
+        <SolidColorBrush x:Key="Color4" Color="#9900CC"/>
+        <SolidColorBrush x:Key="Color5" Color="#FFCC00"/>
+        <SolidColorBrush x:Key="Color6" Color="#FFFFFF"/>
     </Page.Resources>
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
         <Grid.ColumnDefinitions>
@@ -81,11 +87,14 @@
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CAddForca}"
+                            Click="UpdateColors"
                             />
                     <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
                     <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CRemoveForca}"/>
+                            Command="{x:Bind ViewModel.CRemoveForca}"
+                            Click="UpdateColors"/>
                 </StackPanel>
+                <ProgressBar x:Name="forcaProgressBar" Maximum="10" Value="3" Margin="0,5,0,10"/>
                 <TextBlock Text="Vitalidade: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
@@ -94,6 +103,7 @@
                     <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveVitalidade}"/>
                 </StackPanel>
+                <ProgressBar Maximum="10" Value="3" Margin="0,5,0,10" Foreground="{StaticResource Color2}"/>
                 <TextBlock Text="Resistência: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
@@ -102,6 +112,7 @@
                     <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveResistencia}"/>
                 </StackPanel>
+                <ProgressBar Maximum="10" Value="3" Margin="0,5,0,10" Foreground="{StaticResource Color3}"/>
                 <TextBlock Text="Destreza: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
@@ -110,6 +121,7 @@
                     <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveDestreza}"/>
                 </StackPanel>
+                <ProgressBar Maximum="10" Value="3" Margin="0,5,0,10" Foreground="{StaticResource Color4}"/>
                 <TextBlock Text="Percepção: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
@@ -118,6 +130,7 @@
                     <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemovePercepcao}"/>
                 </StackPanel>
+                <ProgressBar Maximum="10" Value="3" Margin="0,5,0,10" Foreground="{StaticResource Color5}"/>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Center" Grid.Column="1" Margin="0,15" Grid.RowSpan="2" Grid.Row="0" VerticalAlignment="Center">
@@ -129,6 +142,7 @@
                     <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveMemoria}"/>
                 </StackPanel>
+                <ProgressBar Maximum="10" Value="3" Margin="0,5,0,10"/>
                 <TextBlock Text="Lábia: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
@@ -137,6 +151,7 @@
                     <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveLabia}"/>
                 </StackPanel>
+                <ProgressBar Maximum="10" Value="3" Margin="0,5,0,10"/>
                 <TextBlock Text="Fé: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
@@ -145,6 +160,7 @@
                     <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveFe}"/>
                 </StackPanel>
+                <ProgressBar Maximum="10" Value="3" Margin="0,5,0,10"/>
                 <TextBlock Text="Trevas: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
@@ -153,6 +169,7 @@
                     <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
                             Command="{x:Bind ViewModel.CRemoveTrevas}"/>
                 </StackPanel>
+                <ProgressBar Maximum="10" Value="3" Margin="0,5,0,10"/>
                 <TextBlock Text="Total: " Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"

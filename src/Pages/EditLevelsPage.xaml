@@ -7,15 +7,41 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:ui="using:Microsoft.UI.Xaml.Controls"
-    xmlns:tk="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
-
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+    >
+    
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="1" Content="Save" FontSize="20" Style="{ThemeResource ButtonRevealStyle}"
-                HorizontalAlignment="Center" Padding="15,10"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="SaveLevelsButton"
+            Grid.Row="1" Grid.Column="1" Content="Save" FontSize="20" Style="{ThemeResource ButtonRevealStyle}"
+                HorizontalAlignment="Center" Padding="15,10"
+                />
+        <StackPanel Grid.Row="1" 
+                    Grid.Column="0"
+                    Margin="10"
+                    HorizontalAlignment="Stretch">
+            <controls:DataGrid 
+                               x:Name="leveldatagrid"
+                               ColumnWidth="*"
+                               HorizontalAlignment="Stretch"
+                               AutoGenerateColumns="True"
+                               CanUserReorderColumns="False"
+                               ItemsSource="{x:Bind ViewModel.LevelDataTable}">
+                <controls:DataGrid.Columns>
+                
+                </controls:DataGrid.Columns>
+            </controls:DataGrid>
+            <Button HorizontalAlignment="Center" 
+                    Margin="10"
+                Content="Add New"/>
+        </StackPanel>
     </Grid>
 </Page>

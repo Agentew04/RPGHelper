@@ -28,9 +28,9 @@ namespace Ficha
         public EditLevelsPage()
         {
             this.InitializeComponent();
-            viewModel = new EditLevelsViewModel();
+            ViewModel = new EditLevelsViewModel();
+            
         }
-        public EditLevelsViewModel viewModel;
-
+        public EditLevelsViewModel ViewModel { get; set; }
     }
 }
