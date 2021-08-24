@@ -16,13 +16,13 @@
         </Style>
     </UserControl.Resources>
     <StackPanel>
-        <TextBlock Text="Força: " Margin="10,0"/>
+        <TextBlock Text="{x:Bind HabilidadeTitle}" Margin="10,0"/>
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-            <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-            Command="{x:Bind ViewModel.CAddForca}"/>
-            <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-            <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-            Command="{x:Bind ViewModel.CRemoveForca}"/>
+            <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Margin="5"  Width="33" Height="33" 
+            Command="{x:Bind AddPointCommand}"/>
+            <TextBlock Text="{x:Bind Points, Mode=OneWay}" Style="{StaticResource middlehab}"/>
+            <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Margin="5"  Width="33" Height="33" 
+            Command="{x:Bind RemovePointCommand}"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

@@ -84,73 +84,43 @@
                 </Grid.RowDefinitions>
                 <!--left column-->
                 <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                    
-                    <TextBlock Text="Destreza: " Margin="10,0"/>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CAddForca}"/>
-                        <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                        <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CRemoveForca}"/>
-                    </StackPanel>
-
-                    <!--<local:HabilidadeCounter
-                        TipoDeHabilidade="forca" ViewModel="{ViewModel}"/>-->
-
-                    <TextBlock Text="Vitalidade: " Margin="10,0"/>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CAddForca}"/>
-                        <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                        <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CRemoveForca}"/>
-                    </StackPanel>
-                    
+                    <local:HabilidadeCounter HabilidadeTitle="Força"
+                                             Points="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}"
+                                             AddPointCommand="{x:Bind ViewModel.CAddForca}"
+                                             RemovePointCommand="{x:Bind ViewModel.CRemoveForca}"/>
+                    <local:HabilidadeCounter HabilidadeTitle="Destreza"
+                                             Points="{x:Bind ViewModel.Habilidades['destreza'], Mode=OneWay}"
+                                             AddPointCommand="{x:Bind ViewModel.CAddDestreza}"
+                                             RemovePointCommand="{x:Bind ViewModel.CRemoveDestreza}"/>
+                    <local:HabilidadeCounter HabilidadeTitle="Vitalidade"
+                                             Points="{x:Bind ViewModel.Habilidades['vitalidade'], Mode=OneWay}"
+                                             AddPointCommand="{x:Bind ViewModel.CAddVitalidade}"
+                                             RemovePointCommand="{x:Bind ViewModel.CRemoveVitalidade}"/>
                 </StackPanel>
                 
                 <!--right column-->
                 <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-
-                    <TextBlock Text="Inteligência: " Margin="10,0"/>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CAddForca}"/>
-                        <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                        <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CRemoveForca}"/>
-                    </StackPanel>
-                    
-                    <TextBlock Text="Lábia: " Margin="10,0"/>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CAddForca}"/>
-                        <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                        <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CRemoveForca}"/>
-                    </StackPanel>
-
-                    <TextBlock Text="Sabedoria: " Margin="10,0"/>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CAddForca}"/>
-                        <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                        <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CRemoveForca}"/>
-                    </StackPanel>
-                    
+                    <local:HabilidadeCounter HabilidadeTitle="Inteligência"
+                                             Points="{x:Bind ViewModel.Habilidades['fe'], Mode=OneWay}"
+                                             AddPointCommand="{x:Bind ViewModel.CAddFe}"
+                                             RemovePointCommand="{x:Bind ViewModel.CRemoveFe}"/>
+                    <local:HabilidadeCounter HabilidadeTitle="Lábia"
+                                             Points="{x:Bind ViewModel.Habilidades['labia'], Mode=OneWay}"
+                                             AddPointCommand="{x:Bind ViewModel.CAddLabia}"
+                                             RemovePointCommand="{x:Bind ViewModel.CRemoveLabia}"/>
+                    <local:HabilidadeCounter HabilidadeTitle="Sabedoria"
+                                             Points="{x:Bind ViewModel.Habilidades['trevas'], Mode=OneWay}"
+                                             AddPointCommand="{x:Bind ViewModel.CAddTrevas}"
+                                             RemovePointCommand="{x:Bind ViewModel.CRemoveTrevas}"/>
                 </StackPanel>
                 
                 <!--total-->
-                <StackPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <TextBlock Text="Força: " Margin="10,0"/>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <Button Content="+" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CAddForca}"/>
-                        <TextBlock Text="{x:Bind ViewModel.Habilidades['forca'], Mode=OneWay}" Style="{StaticResource middlehab}"/>
-                        <Button Content="-" Style="{ThemeResource ButtonRevealStyle}" Width="30" Height="30" Margin="5"
-                            Command="{x:Bind ViewModel.CRemoveForca}"/>
-                    </StackPanel>
-                </StackPanel>
+                    <local:HabilidadeCounter HabilidadeTitle="Total"
+                                             Points="{x:Bind ViewModel.Habilidades['total'], Mode=OneWay}"
+                                             AddPointCommand="{x:Bind ViewModel.CAddTotal}"
+                                             RemovePointCommand="{x:Bind ViewModel.CRemoveTotal}"
+                                             Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
             </Grid>
             <!--#endregion-->
             <!-- xp -->

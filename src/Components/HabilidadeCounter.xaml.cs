@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Windows.Input;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -24,29 +25,53 @@ namespace Ficha
             this.InitializeComponent();
         }
 
-
-        public string TipoDeHabilidade
+        public int Points
         {
-            get { return (string)GetValue(TipoDeHabilidadeProperty); }
-            set { SetValue(TipoDeHabilidadeProperty, value); }
+            get { return (int)GetValue(PointsProperty); }
+            set { SetValue(PointsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Points.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PointsProperty =
+            DependencyProperty.Register("Points", typeof(int), typeof(HabilidadeCounter), new PropertyMetadata(0));
+
+
+
+        public ICommand AddPointCommand
+        {
+            get { return (ICommand)GetValue(AddPointCommandProperty); }
+            set { SetValue(AddPointCommandProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TipoDeHabilidadeProperty =
-            DependencyProperty.Register("Tipo", typeof(string), typeof(HabilidadeCounter), new PropertyMetadata("forca"));
+        public static readonly DependencyProperty AddPointCommandProperty =
+            DependencyProperty.Register("AddPointCommand", typeof(ICommand), typeof(HabilidadeCounter), new PropertyMetadata(new RelayCommand(null)));
 
-
-
-        public FichaViewModel ViewModel
+        public ICommand RemovePointCommand
         {
-            get { return (FichaViewModel)GetValue(ViewModelProperty); }
-            set { SetValue(ViewModelProperty, value); }
+            get { return (ICommand)GetValue(RemovePointCommandProperty); }
+            set { SetValue(RemovePointCommandProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ViewModelProperty =
-            DependencyProperty.Register("ViewModel", typeof(FichaViewModel), typeof(HabilidadeCounter), new PropertyMetadata(new FichaViewModel("","","","")));
+        public static readonly DependencyProperty RemovePointCommandProperty =
+            DependencyProperty.Register("AddPointCommand", typeof(ICommand), typeof(HabilidadeCounter), new PropertyMetadata(null));
 
+
+
+        public string HabilidadeTitle
+        {
+            get {
+                return (string)GetValue(HabilidadeTitleProperty);
+            }
+            set {
+                SetValue(HabilidadeTitleProperty, value+": "); 
+            }
+        }
+
+        // Using a DependencyProperty as the backing store for HabilidadeTitle.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty HabilidadeTitleProperty =
+            DependencyProperty.Register("HabilidadeTitle", typeof(string), typeof(HabilidadeCounter), new PropertyMetadata(""));
 
 
     }
