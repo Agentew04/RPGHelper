@@ -8,19 +8,18 @@ This app was designed to assist both Players and Masters in the creation and the
 
 The current version of the application includes a integrated dice-roller and  a form to store :
 
-* Name
-* Class
-* Breed
+* Basic info(Name, Class, etc.)
 * Backpack/Inventory
 * Experience and level
-* Life
+* Skill points distribution
+* Life/Maximum Life
 * Gold/Custom currency
 
 In addition, it also has a custom menu for Master to customize all the naming on the app, level progression(custom, arithmetic and geometric progression), level-up rewards(a new line on the backpack or a amount of gold)
 
 ## Saving
 
-The app saves all the data from the user in a `config.json`. The location of the file depends on the computer and is shown on the configuration tab. The Master can export all the RPG data needed on a `rpg.json`. Any user is encouraged to change anything he wants, but, be aware that it might break things if done incorrectly!
+The app saves all the data from the user in a `config.json`. The location of the file depends on the computer and it's shown on the configuration tab. ~~The Master can export all the RPG data needed on a `rpg.json`~~. Any user is encouraged to change anything he wants, but, be aware that it might break things if done incorrectly!
 
 ## Downloads
 
@@ -32,4 +31,6 @@ Downloads for the app package are located [here](https://github.com/Agentew04/Fi
 
 ## Future roadmap
 
-As soon as WinUI 3 apps becomes available as unpackaged, the app will be ported to facilitate the file saving on a stable folder.
+* As soon as WinUI 3 apps becomes available in unpackaged apps(Q4 2021), the app will be ported due to many things being harder to do in UWP.
+* Add full customization by json or a custom file format
+* Add multiple language support
