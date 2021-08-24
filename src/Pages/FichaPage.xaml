@@ -9,8 +9,7 @@
     mc:Ignorable="d"
     d:DataContext="{d:DesignInstance Type=local:FichaViewModel}"
     Background ="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    xmlns:ui ="using:Microsoft.UI.Xaml.Controls"
-    xmlns:adduplex="using:AdDuplex">
+    xmlns:ui ="using:Microsoft.UI.Xaml.Controls">
 
     <Page.Resources>
         <local:ConverterStrInt x:Key="conv-str-int"/>
@@ -295,8 +294,7 @@
             
             <Grid Grid.Row="1">
                 <StackPanel VerticalAlignment="Center">
-                    <adduplex:AdControl Margin="5,15" AdUnitId="217951" AppKey="5071a304-c99b-4d47-b5a6-ce113908ff90" />
-                    <adduplex:AdControl Margin="5,15" AdUnitId="217947" AppKey="5071a304-c99b-4d47-b5a6-ce113908ff90" />
+                    
                 </StackPanel>
                 
             </Grid>

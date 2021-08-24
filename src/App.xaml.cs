@@ -61,7 +61,6 @@ namespace Ficha
                 // Verifique se a janela atual está ativa
                 Window.Current.Activate();
             }
-            AdDuplex.AdDuplexClient.Initialize("5071a304-c99b-4d47-b5a6-ce113908ff90");
         }
 
         /// <summary>

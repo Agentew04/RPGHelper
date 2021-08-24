@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:adduplex="using:AdDuplex"
     Background="{ThemeResource SystemControlAcrylicWindowBrush}">
 
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
@@ -46,8 +45,5 @@
                         Command="{x:Bind ViewModel.CLoad}"/>
             </StackPanel>
         </Border>
-        <adduplex:AdControl Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right"
-            AdUnitId="217947" AppKey="5071a304-c99b-4d47-b5a6-ce113908ff90"/>
-
     </Grid>
 </Page>
