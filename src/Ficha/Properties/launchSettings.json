@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Ficha (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Ficha (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

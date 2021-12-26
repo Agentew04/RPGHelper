@@ -1,0 +1,21 @@
+﻿<Window
+    x:Class="Ficha.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ficha"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <NavigationView PaneDisplayMode="Top" IsSettingsVisible="True" AlwaysShowHeader="False" IsBackButtonVisible="Collapsed"
+                    SelectionChanged="NavViewSelectionChanged" x:Name="NavView" >
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="Ficha" Icon="Document" Tag="Ficha"/>
+            <NavigationViewItem Content="Dados" Icon="Refresh" Tag="Dados" />
+            <NavigationViewItem Content="Editor" Icon="Edit" Tag="Editor" />
+        </NavigationView.MenuItems>
+            
+        <Frame x:Name="ContentFrame" Background="{StaticResource SystemControlAcrylicWindowBrush}"/>
+    </NavigationView>
+         
+    
+</Window>
