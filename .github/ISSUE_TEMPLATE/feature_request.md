@@ -1,9 +1,9 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+title: New Feature Idea
+labels: enhancement
+assignees: Agentew04
 
 ---
 
