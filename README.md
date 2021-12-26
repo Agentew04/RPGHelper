@@ -31,6 +31,6 @@ Downloads for the app package are located [here](https://github.com/Agentew04/RP
 
 ## Future roadmap
 
-* ~~As soon as WinUI 3 apps becomes available in unpackaged apps(Q4 2021), the app will be ported due to many things being harder to do in UWP.~~
+* ~~As soon as WinUI 3 apps becomes available in unpackaged apps(Q4 2021), the app will be ported due to many things being harder to do in UWP.~~ It's here!!
 * Add full customization for game masters(both by GUI and directly the `.json` file
 * Add multiple language support(Community translations are welcome! See [CONTRIBUTING.md](https://github.com/Agentew04/RPGHelper/blob/main/CONTRIBUTING.md) to learn more)
